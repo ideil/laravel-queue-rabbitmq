@@ -48,7 +48,11 @@ class RabbitMQJob extends Job implements JobContract
      */
     public function getRawBody()
     {
-        return $this->message->body;
+        $body = $this->message->body;
+        
+        unset($body['data']['attempts']);
+        
+        return $body;
     }
 
     /**
@@ -111,7 +115,7 @@ class RabbitMQJob extends Job implements JobContract
     {
         $body = json_decode($this->message->body, true);
 
-        return isset($body['data']['attempts']) ? (int)$body['data']['attempts'] : 0;
+        return isset($body['data']['attempts']) ? (int)$body['data']['attempts'] : 1;
     }
 
     /**
