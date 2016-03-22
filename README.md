@@ -9,7 +9,7 @@ Require this package in your composer.json and run composer update (IMPORTANT! D
     
 After composer update is finished you need to add ServiceProvider to your `providers` array in `app.php`:
 				
-	Ideil\LaravelQueueRabbitMQ\LaravelQueueRabbitMQServiceProvider::class,
+	VladimirYuldashev\LaravelQueueRabbitMQ\LaravelQueueRabbitMQServiceProvider::class,
 
 Add these lines to your `app/config/queue.php` file to `connections` array:
    
